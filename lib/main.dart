@@ -34,7 +34,10 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
         body: ListView.builder(
           itemCount: attendees.length,
-            itemBuilder: (context, index) => Text(
-                ' ${attendees[index].firstName} ${attendees[index].lastName}')));
+            itemBuilder: (context, index) => ListTile(
+                leading: Text('${attendees[index].firstName.substring(0,1)}${attendees[index].lastName.substring(0,1)}'),
+                          title: Text(
+                  '${attendees[index].firstName} ${attendees[index].lastName}'),
+            )));
   }
 }
