@@ -32,17 +32,28 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: ListView.builder(
-          itemCount: attendees.length,
-            itemBuilder: (context, index) => ListTile(
+      body: CustomScrollView(
+        slivers: <Widget>[
+          SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (context, index) => ListTile(
                 leading: Container(
-                  decoration: ShapeDecoration(shape: CircleBorder(),color: Color(0xFFFFFF00)),
+                  decoration: ShapeDecoration(
+                      shape: CircleBorder(), color: Color(0xFFFFFF00)),
                   child: Padding(
                     padding: const EdgeInsets.all(10.0),
-                    child: Text('${attendees[index].firstName.substring(0,1)}${attendees[index].lastName.substring(0,1)}'),
-                  )),
-                          title: Text(
-                  '${attendees[index].firstName} ${attendees[index].lastName}'),
-            )));
+                    child: Text(
+                        '${attendees[index].firstName.substring(0, 1)}${attendees[index].lastName.substring(0, 1)}'),
+                  ),
+                ),
+                title: Text(
+                    '${attendees[index].firstName} ${attendees[index].lastName}'),
+              ),
+              childCount: attendees.length
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
