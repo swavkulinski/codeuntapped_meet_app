@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'data.dart';
+import 'attendee_list_widget.dart';
+import 'header_widget.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -33,52 +35,8 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SafeArea(
               child: CustomScrollView(
           slivers: <Widget>[
-            SliverAppBar(
-              backgroundColor: Theme.of(context).accentColor,
-              expandedHeight: 200,
-              flexibleSpace: Stack(children: <Widget>[
-                LayoutBuilder(
-                                builder:(context,constraints) => Container(
-                    width: constraints.maxWidth,
-                    child: Image.asset(
-                      'assets/cu_background.jpg',
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: ColorFiltered(
-                        colorFilter: invertFilter,
-                        child: Image.asset(
-                          'assets/cu_logo.png',
-                        )),
-                  ),
-                ),
-              ]),
-              pinned: true,
-            ),
-            SliverList(
-              delegate: SliverChildBuilderDelegate(
-                  (context, index) => ListTile(
-                        leading: Container(
-                          decoration: ShapeDecoration(
-                            shape: CircleBorder(),
-                            color: Theme.of(context).accentColor,
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(10.0),
-                            child: Text(
-                                '${attendees[index].firstName.substring(0, 1)}${attendees[index].lastName.substring(0, 1)}'),
-                          ),
-                        ),
-                        title: Text(
-                            '${attendees[index].firstName} ${attendees[index].lastName}'),
-                      ),
-                  childCount: attendees.length),
-            ),
+            HeaderWidget(),
+            AttendeeListWidget(),
           ],
         ),
       ),
@@ -86,25 +44,5 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-const invertFilter = ColorFilter.matrix(<double>[
-  -1,
-  0,
-  0,
-  0,
-  255,
-  0,
-  -1,
-  0,
-  0,
-  255,
-  0,
-  0,
-  -1,
-  0,
-  255,
-  0,
-  0,
-  0,
-  1,
-  0,
-]);
+
+

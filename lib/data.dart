@@ -26,5 +26,4 @@ const attendees = [
   Attendee(firstName:'Swav',lastName:'Kulinski'),
   Attendee(firstName:'Swav',lastName:'Kulinski'),
   Attendee(firstName:'Swav',lastName:'Kulinski'),
-  Attendee(firstName:'Swav',lastName:'Kulinski'),
   ];
