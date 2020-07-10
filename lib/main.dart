@@ -35,7 +35,12 @@ class _MyHomePageState extends State<MyHomePage> {
         body: ListView.builder(
           itemCount: attendees.length,
             itemBuilder: (context, index) => ListTile(
-                leading: Text('${attendees[index].firstName.substring(0,1)}${attendees[index].lastName.substring(0,1)}'),
+                leading: Container(
+                  decoration: ShapeDecoration(shape: CircleBorder(),color: Color(0xFFFFFF00)),
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Text('${attendees[index].firstName.substring(0,1)}${attendees[index].lastName.substring(0,1)}'),
+                  )),
                           title: Text(
                   '${attendees[index].firstName} ${attendees[index].lastName}'),
             )));
