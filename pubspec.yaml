@@ -15,4 +15,5 @@ flutter:
   uses-material-design: true
   assets:
     - assets/cu_logo.png
+    - assets/cu_background.jpg
   #   - images/a_dot_ham.jpeg
