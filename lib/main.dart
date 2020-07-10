@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'data.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -30,7 +32,9 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: ListView.builder(itemBuilder: (context,index) => Text('a'))
-    );
+        body: ListView.builder(
+          itemCount: attendees.length,
+            itemBuilder: (context, index) => Text(
+                ' ${attendees[index].firstName} ${attendees[index].lastName}')));
   }
 }
