@@ -27,14 +27,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Hero(
-        tag: 'main',
-        child: Image.asset('assets/cu_logo.png'),
-      ),
+        body: ListView.builder(itemBuilder: (context,index) => Text('a'))
     );
   }
 }
